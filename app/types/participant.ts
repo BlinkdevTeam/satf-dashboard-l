@@ -17,5 +17,7 @@ export type Participant = {
   time_out?: string;
   formatted_timein?: string;
   formatted_timeout?: string;
+  onReject: () => void;
   approved?: boolean;
+  rejected?: boolean;
 };

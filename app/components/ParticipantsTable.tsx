@@ -121,8 +121,12 @@ export default function ParticipantsTable({
                 <td className="p-2">{user.company}</td>
                 <td className="p-2">{user.designation}</td>
                 <td className="p-2">
-                  {user.approved ? (
-                    <span className="inline-block px-2 py-0.5 text-xs font-semibold text-green-700 bg-green-100 rounded">
+                  {user.rejected ? (
+                    <span className="inline-block px-2 py-0.5 text-xs font-semibold text-[#EF1748] bg-red-100 rounded">
+                      Rejected
+                    </span>
+                  ) : user.approved ? (
+                    <span className="inline-block px-2 py-0.5 text-xs font-semibold text-[#3EAD35] bg-green-100 rounded">
                       Approved
                     </span>
                   ) : (

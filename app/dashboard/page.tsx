@@ -153,6 +153,24 @@ export default function DashboardPage() {
     );
   });
 
+  const handleReject = async () => {
+    if (!selectedUser) return;
+    setApproving(true);
+
+    const { error } = await supabase
+      .from(activeTab.table)
+      .update({ rejected: true })
+      .eq("id", selectedUser.id);
+
+    if (error) {
+      console.error("Reject failed:", error.message);
+    } else {
+      fetchParticipants();
+    }
+
+    setApproving(false);
+  };
+
   return (
     <div className="px-6 py-8">
       {/* Logo */}
@@ -181,13 +199,16 @@ export default function DashboardPage() {
           <h1 className="text-base md:text-lg font-semibold text-gray-800">
             Total Number of Participants: {participants.length}
           </h1>
-          <h1 className="text-base md:text-lg font-semibold text-gray-800">
-            Total Active Participants:{" "}
-            {
-              participants.filter((p) => p.time_in !== null && p.time_in !== "")
-                .length
-            }
-          </h1>
+          {["Onsite 17", "Onsite 24"].includes(activeTab.label) && (
+            <h1 className="text-base md:text-lg font-semibold text-gray-800">
+              Total Active Participants:{" "}
+              {
+                participants.filter(
+                  (p) => p.time_in !== null && p.time_in !== ""
+                ).length
+              }
+            </h1>
+          )}
         </div>
       </div>
 
@@ -204,7 +225,7 @@ export default function DashboardPage() {
                 setActiveTab(tab);
                 setSelectedUser(null);
               }}
-              className={`px-4 py-2 rounded text-sm font-bold ${
+              className={`px-4 py-2 rounded text-sm font-bold cursor-pointer ${
                 isActive ? "text-white" : "text-white"
               }`}
               style={{
@@ -241,6 +262,7 @@ export default function DashboardPage() {
               onTimeOut={() => handleTimeAction("out")}
               onApprove={handleApprove}
               approving={approving}
+              onReject={handleReject}
             />
           </div>
         )}
