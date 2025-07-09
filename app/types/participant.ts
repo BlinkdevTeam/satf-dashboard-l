@@ -1,0 +1,21 @@
+export type Participant = {
+  id: string;
+  email: string;
+  first_name_upper: string;
+  last_name_upper: string;
+  company: string;
+  designation: string;
+  participation_type: string;
+  street?: string;
+  barangay?: string;
+  city?: string;
+  province_state?: string;
+  zip?: string;
+  cellphone?: string;
+  source: string;
+  time_in?: string;
+  time_out?: string;
+  formatted_timein?: string;
+  formatted_timeout?: string;
+  approved?: boolean;
+};
