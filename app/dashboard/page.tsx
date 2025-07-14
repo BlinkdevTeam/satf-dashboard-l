@@ -11,9 +11,9 @@ import Image from "next/image";
 
 const tabs = [
   { label: "Online 17", table: "satf_participant_online_17" },
-  { label: "Online 24", table: "satf_participant_online_24" },
+  // { label: "Online 24", table: "satf_participant_online_24" },
   { label: "Onsite 17", table: "satf_participant_onsite_17" },
-  { label: "Onsite 24", table: "satf_participant_onsite_24" },
+  // { label: "Onsite 24", table: "satf_participant_onsite_24" },
 ];
 
 export default function DashboardPage() {
@@ -196,11 +196,11 @@ export default function DashboardPage() {
 
         <div className="flex gap-8">
           {/* Total Count */}
-          <h1 className="text-base md:text-lg font-semibold text-gray-800">
+          <h1 className="text-base lg:text-lg font-semibold text-gray-800">
             Total Number of Participants: {participants.length}
           </h1>
           {["Onsite 17", "Onsite 24"].includes(activeTab.label) && (
-            <h1 className="text-base md:text-lg font-semibold text-gray-800">
+            <h1 className="text-base lg:text-lg font-semibold text-gray-800">
               Total Active Participants:{" "}
               {
                 participants.filter(
