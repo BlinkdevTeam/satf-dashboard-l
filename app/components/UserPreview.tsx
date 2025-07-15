@@ -107,6 +107,12 @@ export default function UserPreview({
           {!isOnlineSource && (
             <>
               <p>
+                <strong>Registration Type:</strong>{" "}
+                {user.manual_reg === "yes"
+                  ? "Manually Registered"
+                  : "Registered via Online Form"}
+              </p>
+              <p>
                 <strong>Time In:</strong> {user.formatted_timein || "—"}
               </p>
               <p>

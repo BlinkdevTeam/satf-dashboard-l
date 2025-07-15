@@ -20,4 +20,5 @@ export type Participant = {
   onReject: () => void;
   approved?: boolean;
   rejected?: boolean;
+  manual_reg?: string;
 };
