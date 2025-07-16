@@ -11,9 +11,9 @@ import Image from "next/image";
 
 const tabs = [
   { label: "Online 17", table: "satf_participant_online_17" },
-  // { label: "Online 24", table: "satf_participant_online_24" },
+  { label: "Online 24", table: "satf_participant_online_24" },
   { label: "Onsite 17", table: "satf_participant_onsite_17" },
-  // { label: "Onsite 24", table: "satf_participant_onsite_24" },
+  { label: "Onsite 24", table: "satf_participant_onsite_24" },
 ];
 
 export default function DashboardPage() {
